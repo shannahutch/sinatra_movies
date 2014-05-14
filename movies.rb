@@ -19,6 +19,8 @@ get '/movies/new' do
 end
 
 get '/movies/create' do
+    @stuff = params[:movie]
+  #goes to sinatra create methos in movies
   response = Typhoeus.post("localhost:3000/movies.json", 
     params: {movie: params[:movie]})
   redirect '/movies'
